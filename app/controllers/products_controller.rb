@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    binding.pry
     @product = ShopifyAPI::Product.new(product_params)
     @product.save
     variant(@product)
@@ -41,7 +40,8 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    variant_price(@product)
+    binding.pry
+    variant(@product)
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -68,13 +68,10 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      binding.pry
-      params.permit(:title, :body_html, :price, :inventory_quantity)
+      params.permit(:title, :body_html, :price)
     end
 
     def variant(product)
-      binding.pry
       product.variants.first.price = params[:price]
-      product.variants.first.inventory_quantity = params[:inventory_quantity]
     end
 end

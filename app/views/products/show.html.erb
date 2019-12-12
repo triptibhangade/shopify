@@ -2,7 +2,6 @@
 
 Title: <%= @product.title %><br>
 Price: <%= @product.variants.first.price %><br>
-Quantity: <%= @product.variants.first.inventory_quantity %><br>
 Description: <%= @product.body_html %><br>
 
 <%= link_to 'Edit', edit_product_path(@product), class: "btn btn-xs btn-default" %>
