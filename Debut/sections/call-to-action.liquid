@@ -1,0 +1,38 @@
+<div id="section-cta">
+  <div id="container text-center">
+    <h3> {{ section.settings.text-box }} </h3>
+    <a href="{{ section.settings.link }}" class="btn btn--cta text-center"> {{ section.settings.linktext }} </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Call to action",
+  "settings": [
+  {
+    "id": "text-box-title",
+    "type": "text",
+    "label": "Heading",
+    "default": "Title"
+  },
+  {
+    "id": "link",
+    "type": "url",
+    "label": "Button-link"
+  },
+  {
+    "id": "link-text",
+    "type": "text",
+    "label": "Button Text",
+    "default": "<p>Click here</p>"
+  }
+  ],
+
+  "presets":[
+  {
+      "name": "Call to Action",
+      "category": "Call To Action"
+  }
+  ]
+}
+{% endschema %}
